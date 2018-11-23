@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+		<meta charset = "utf-8">
+		<title></title>
+		<style type = "text/css">
+			table.a	{width: 1000px; height: 600px;
+					 margin-left: auto; margin-right: auto; margin-top: 20px;
+					 border-color: black; border-style:solid; border-width:3px;
+					 background-color: red;}
+			table.b	{width: 100%; height: 100%; 
+					 border-color: black; border:3px black solid;}
+			td 		{background-color: white;
+					 width: 11%; 
+					 vertical-align:top}
+			div.a	{height: 41%; width: 90%;
+					 text-align:justify; overflow: auto;
+					 margin-left: auto; margin-right: auto; margin-top: 10px;
+					 border-width: 5px; border-style: double; border-color: black;}
+			div.b	{height: 40%; width: 70%;
+					 margin-top: 10px; margin-bottom: 10px; margin-left: 10px; margin-right: auto;
+					 border-style: ridge; border-width: 5px; border-color: red;
+					 float: left;}
+			div.c	{width: 26%; height: 6%;
+					 margin-left: auto; margin-right: auto; float: left; text-align: center;
+					 border-width: 5px; border-color: red; border-style: ridge;
+					 margin-left: 10px; margin-bottom: 7px; margin-top: 12px;
+					 font-weight: bold;}
+			div.d	{width: 26%; height: 6%;
+					 border-width: 5px; border-color: red; border-style: ridge;
+					 float: left; margin-left: 10px; margin-bottom: 19px; text-align: center;
+					 font-weight: bold;}
+			.s 		{width: 26px; height: 26px; float: left;}
+			.s2		{width: 26px; height: 26px;
+					 position: relative; top: 4px;}
+			.s3		{width: 26px; height: 26px;
+					 position: relative; top: 4px;}
+			font	{position: relative; top: -4px;}
+			font.a	{font-size: 50px; font-weight: bold;
+					 text-align: center; position: relative;
+					 background-color: black; color: yellow;}
+			span.sc	{color: blue; font-weight: bold;}
+			span.nc	{color: yellow; font-weight: bold;}
+			span.hc	{color: orange; font-weight: bold;}
+			span.dice{color: white; font-weight: bold;}
+			span.spot{color: #ABEBC6; font-weight: bold;}
+			span.hurt{color: #FF0000;}
+			span.e1	{color: green;}
+			span.e2	{color: blue;}
+			span.e3	{color: purple;}
+			span.e4	{color: yellow;}
+		</style>
+		<script>
+			
+			
+			window.addEventListener( "load", start, false );
+		</script>
+
+	</head>
+	<body>
+		<table border = "1" class = 'a'>
+			<caption><font class = 'a'>第四次忍界大戰<br></font></caption>
+			<tbody><tr style = 'height :11%'>
+				<td background="木葉村.jpg" style = "background-size: 100% 100%;"id = 't0'><div id = 'a0'><img src = '鳴人.png' class = 's'><img src = '佐助.png' class = 's'><img src = '輝夜.png' class = 's'></div></td>
+				<td background="木葉森林.jpg" style = "background-size: 100% 100%;"id = 't1'><div id = 'a1'></div></td>
+				<td background="木葉訓練場.jpg" style = "background-size: 100% 100%;"id = 't2'><div id = 'a2'></div></td>
+				<td background="木葉森林深處.jpg" style = "background-size: 100% 100%;"id = 't3'><div id = 'a3'></div></td>
+				<td background="命運.png" style = "background-size: 100% 100%;"id = 't4'><div id = 'a4'></div></td>
+				<td background="草波海岸.jpg" style = "background-size: 100% 100%;"id = 't5'><div id = 'a5'></div></td>
+				<td background="島龜.jpg" style = "background-size: 100% 100%;"id = 't6'><div id = 'a6'></div></td>
+				<td background="命運.png" style = "background-size: 100% 100%;"id = 't7'><div id = 'a7'></div></td>
+				<td background="雲隱村.jpg" style = "background-size: 100% 100%;"id = 't8'><div id = 'a8'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="木葉森林.jpg" style = "background-size: 100% 100%;"id = 't31'><div id = 'a31'></div></td>
+				<td rowspan = '7' colspan = '3' style = 'background-color: gray';>
+					<table class = 'b' style = 'background-color: black';>
+						<tbody><tr style = 'height :10%'><th colspan = '10' style = 'background-color: #4FF0DF;'>角色資訊</th></tr>
+						<tr style = 'height :10%; background-color: yellow';><th colspan = '10'><font>鳴人</font><img src = '鳴人.png' class = 's2'></th></tr>
+						<tr style = 'height :10%; background-color: yellow';>
+						<th style = 'width :33%' id = 'n_HP'>血量: </th><th style = 'width :34%' id = 'n_DEF'>防禦: </th><th style = 'width :33%' id = 'n_ATK'>攻擊: </th>
+						<tr style = 'height :10%; background-color: yellow;' >
+						<th colspan = '10' id = 'n_equipment' style = 'text-align: left;'>&nbsp;&nbsp;&nbsp;裝備 : </th>
+						</tr>
+						<tr><th style = 'height :10%; background-color: #9566F2;'  colspan = '10'><font>佐助</font> <img src = '佐助.png' class = 's2'></th></tr>
+						<tr style = 'height :10%; background-color: #9566F2;'>
+						<th style = 'width :33%' id = 's_HP'>血量: </th><th style = 'width :34%' id = 's_DEF'>防禦: </th><th style = 'width :33%' id = 's_ATK'>攻擊: </th>
+						<tr style = 'height :10% ; background-color: #9566F2;'>
+						<th colspan = '10' id = 's_equipment' style = 'text-align: left;'>&nbsp;&nbsp;&nbsp;裝備 : </th>
+						</tr>
+						<tr><th style = 'height :10%; background-color: #ED4B31;'  colspan = '10'><font>大筒木輝夜</font><img src = '輝夜.png' class = 's2'></th></tr>
+						<tr style = 'height :10%; background-color: #ED4B31;'>
+						<th style = 'width :33%' id = 'h_HP'>血量: </th><th style = 'width :34%' id = 'h_DEF'>防禦: </th><th style = 'width :33%' id = 'h_ATK'>攻擊: </th>
+						<tr style = 'height :10%; background-color: #ED4B31;'>
+						<th colspan = '10' id = 'h_equipment' style = 'text-align: left;'>&nbsp;&nbsp;&nbsp;裝備 : </th>
+						</tr></tbody>
+				</table>
+				</td>
+				<td background="木葉懸崖.jpg" style = "background-size: 100% 100%;"id = 't32'><div id = 'a32'></div></td>
+				<td rowspan = '7' colspan = '3' style = "vertical-align:top; background-color:black;" >
+					<div class = 'b' style = "background-color:white;">
+						<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<img id = "die1" src = "die6.png" alt = "blank image"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<img id = "die2" src = "die6.png" alt = "blank image"><br><br>
+					</div>
+					<input id = "rollButton" type = "button" value = "Roll Dice" style = 'float: left; margin-top: 10px; margin-left: 5px; height:30px; width: 70px;'>
+					<input id = "confirm" type = "button" value = "confirm" style = 'float: left; margin-top: 10px; margin-left: 5px; height:30px; width: 70px;'><br><br><br><br><br><br><br>
+					<input id = "play" type = "button" onclick="restart()" value = "restart" style = 'float: left; margin-top: 10px; margin-left: 5px;height:34px; width: 70px;'>
+					<div id = 'n' class = 'd' onmouseover = 'b_nr()' onmouseout = "s_nr()"style = 'background-color: yellow;border-color: yellow;'>鳴人</div>
+					<div id = 's' class = 'c' onmouseover = 'b_sk()' onmouseout = "s_sk()"  style = 'background-color: #9566F2;border-color: #9566F2;'>佐助</div>
+					<div id = 'h' class = 'c' onmouseover = 'b_kg()' onmouseout = "s_kg()" style = 'background-color: #ED4B31;border-color: #ED4B31;'>大筒木輝夜</div>
+					<input id = "h_skill" onclick="h_skill()" type = "button" value = "skill" style = 'float: right; margin-bottom: 10px; margin-right: 12px;width: 29%;height:18px;border:2px black double;background-color:#ED4B31;'>
+					<input id = "s_skill" onclick="s_skill()" type = "button" value = "skill" style = 'float: right; margin-bottom: 10px; margin-right: 10px;width: 29%;height:18px;border:2px black double;background-color:#9566F2;'>
+					<input id = "n_skill" onclick="n_skill()"  type = "button"value = "skill" style = 'float: right; margin-bottom: 10px; margin-right: 10px;width: 29%;height:18px;border:2px black double;background-color:yellow;'>
+					<div class = 'a' style = "background-color:#c0c0c0;" id = 'msg' >這裡是第四次忍界大戰(一到兩人遊玩)<br>玩家扮演<span class = 'nc'>鳴人</span>和<span class = 'sc'>佐助</span><br>並想辦法打贏<span class = 'hc'>輝夜</span><br><span class = 'hurt'>祝你們好運!</span><br></div>
+				</td>
+				<td background="雲雷峽.jpg" style = "background-size: 100% 100%;"id = 't9'><div id = 'a9'></div></td></tr>
+			<tr style = 'height :11%'>
+				<td background="火之國森林.jpg" style = "background-size: 100% 100%;"id = 't30'><div id = 'a30'></div></td>
+				<td background="死亡森林.jpg" style = "background-size: 100% 100%;"id = 't33'><div id = 'a33'></div></td>
+				<td background="波之國.jpg" style = "background-size: 100% 100%;"id = 't10'><div id = 'a10'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="川之國.jpg" style = "background-size: 100% 100%;"id = 't29'><div id = 'a29'></div></td>
+				<td background="死亡森林深處.jpg" style = "background-size: 100% 100%;"id = 't34'><div id = 'a34'></div></td>
+				<td background="命運.png" style = "background-size: 100% 100%;"id = 't11'><div id = 'a11'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="命運.png" style = "background-size: 100% 100%;"id = 't28'><div id = 'a28'></div></td>
+				<td background="霧隱村.jpg" style = "background-size: 100% 100%;"id = 't35'><div id = 'a35'></div></td>
+				<td background="鐵之國雪原.jpg" style = "background-size: 100% 100%;"id = 't12'><div id = 'a12'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="熱沙荒野.jpg" style = "background-size: 100% 100%;"id = 't27'><div id = 'a27'></div></td>
+				<td background="命運.png" style = "background-size: 100% 100%;"id = 't36'><div id = 'a36'></div></td>
+				<td background="鐵之國城門.jpg" style = "background-size: 100% 100%;"id = 't13'><div id = 'a13'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="風之國.jpg" style = "background-size: 100% 100%;"id = 't26'><div id = 'a26'></div></td>
+				<td background="大蛇丸基地外圍.jpg" style = "background-size: 100% 100%;"id = 't37'><div id = 'a37'></div></td>
+				<td background="命運.png" style = "background-size: 100% 100%;"id = 't14'><div id = 'a14'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="一線天.jpg" style = "background-size: 100% 100%;"id = 't25'><div id = 'a25'></div></td>
+				<td background="天地橋.jpg" style = "background-size: 100% 100%;"id = 't38'><div id = 'a38'></div></td>
+				<td background="五影會談現場.jpg" style = "background-size: 100% 100%;"id = 't15'><div id = 'a15'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="沙隱村.jpg" style = "background-size: 100% 100%;"id = 't24'><div id = 'a24'></div></td>
+				<td background="命運.png" style = "background-size: 100% 100%;"id = 't23'><div id = 'a23'></div></td>
+				<td background="風之國.jpg" style = "background-size: 100% 100%;"id = 't22'><div id = 'a22'></div></td>
+				<td background="寺橋.jpg" style = "background-size: 100% 100%;"id = 't21'><div id = 'a21'></div></td>
+				<td background="命運.png" style = "background-size: 100% 100%;"id = 't20'><div id = 'a20'></div></td>
+				<td background="短冊街.jpg" style = "background-size: 100% 100%;"id = 't19'><div id = 'a19'></div></td>
+				<td background="枯木之森.jpg" style = "background-size: 100% 100%;"id = 't18'><div id = 'a18'></div></td>
+				<td background="戰場忍刀七人眾.jpg" style = "background-size: 100% 100%;id = 't17'"><div id = 'a17'></div></td>
+				<td background="岩隱村.jpg" style = "background-size: 100% 100%;"id = 't16'><div id = 'a16'></div></td>
+			</tr>
+			</tr></tbody>
+		<div id = 'END'></div>
+	</body>
+</html>

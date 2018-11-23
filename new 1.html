@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+		<meta charset = "utf-8">
+		<title></title>
+		<style type = "text/css">
+			font.a	{font-size: 50px;
+					 color: yellow;
+					 text-align: center;
+					 position: relative;
+					 font-weight: bold;
+					 background-color: #9566F2;
+					 }
+			table.a	{width: 1000px;
+					 height: 600px;
+					 margin-left: auto; 
+					 margin-right: auto;
+					 margin-top: 20px;
+					 background-color: red;
+					 border-color: black;
+					 border-style:solid;
+					 border-width:3px;
+					 }
+			td 		{background-color: white;
+					 width: 11%;
+					 vertical-align:top}
+			h3 		{}
+			table.b	{width: 100%;
+					 height: 100%; 
+					 border-color: black;
+					 border:3px black solid;}
+			div.a	{text-align:justify;
+					 overflow: auto;
+					 height: 38%;
+					 width: 90%;
+					 margin-left: auto; 
+					 margin-right: auto;
+					 margin-top: 10px;
+					 border-width: 5px;
+					 border-style: double; 
+					 border-color: black;}
+			div.b	{height: 40%;
+					 width: 70%;
+					 margin-top: 10px;
+					 margin-bottom: 10px;
+					 margin-left: 10px;
+					 margin-right: auto;
+					 border-style: ridge;
+					 border-width: 5px;
+					 border-color: red;
+					 float: left;}
+			div.c	{width: 26%;
+					 height: 6%;
+					 margin-left: auto; 
+					 margin-right: auto;
+					 border-width: 5px;
+					 border-color: red;
+					 border-style: ridge;
+					 float: left;
+					 margin-left: 10px;
+					 margin-bottom: 7px;
+					 margin-top: 12px;
+					 text-align: center;
+					 font-weight: bold;}
+			div.d	{width: 26%;
+					 height: 6%;
+					 border-width: 5px;
+					 border-color: red;
+					 border-style: ridge;
+					 float: left;
+					 margin-left: 10px;
+					 margin-bottom: 19px;
+					 text-align: center;
+					 font-weight: bold;}
+			.s		{width: 30px;
+					 height: 30px;
+					 float: left;}
+			.s2		{width: 26px;
+					 height: 26px;
+					 position: relative;
+					 top: 4px;}
+			.s3		{width: 26px;
+					 height: 26px;
+					 position: relative;
+					 top: 4px;}
+			.sb		{width: 40px;
+					 height: 40px;
+					 float: left;}
+			font	{position: relative;
+					 top: -4px;}
+			span.sc	{color: blue;
+					 font-weight: bold;}
+			span.nc	{color: yellow;
+					 font-weight: bold;}
+			span.hc	{color: #800000;
+					 font-weight: bold;}
+			span.dice{color: white;
+					  font-weight: bold;}
+			span.spot{color: #808000;
+					  font-weight: bold;}
+			span.hurt{color: #FF0000;}
+			span.e1	{color: green;}
+			span.e2	{color: blue;}
+			span.e3	{color: purple;}
+			span.e4	{color: yellow;}
+			span.end{text-align: center;
+					 font-weight: bold;
+					 font-size: 50px;
+					 color: orange;
+					 background-color: black;}
+			span.tail{color: #8a2be2;
+					 font-weight: bold;}
+			div.end1{position:absolute;
+					 top:200px;
+					 left:500px;
+					 z-index:100;
+					 width = 420px;}
+			div.end2{position:absolute;
+					 top:200px;
+					 left:400px;
+					 z-index:100;
+					 width = 420px;}
+			div.end3{position:absolute;
+					 top:100px;
+					 left:550px;
+					 z-index:100;
+					 width = 420px;}
+		</style>
+		<script>
+			var Boss = {name : "輝夜", id : 0, p : 0, middle : 0, pro : 0, HP : 5000000, ATK : 20000, DEF : 15000, skill : 1, CD : 100000, eqipment : 0};
+			var P1 = {name : "鳴人", id : 1, p : 0, middle : 0, pro : 0, HP : 25000, ATK : 2500, DEF : 3000, skill : 1, CD : 100000, MAX_ATK : 2500,MAX_HP : 25000,MAX_DEF : 3000;R_HP : 1000;R_ATK : 500;R_DEF : 300, equipment  : new Array(0,0,0,0,0,0), MAX_EQ = 0};
+			var P2 = {name : "佐助", id : 2, p : 0, middle : 0, pro : 0, HP : 20000, ATK : 4000, DEF : 2500, skill : 1, CD : 100000, MAX_ATK : 4000,MAX_HP : 20000,MAX_DEF : 2500;R_HP : 200;R_ATK : 2000;R_DEF : 300, equipment  : new Array(0,0,0,0,0,0), MAX_EQ = 0};
+			var Kaguya = { name : "輝夜", id : 0, p : 0, middle : 0, pro : 0, HP : 5000000, ATK : 20000, DEF : 15000, skill : 1, CD : 100000, eqipment : 0};
+			var Naruto = { name : "鳴人", id : 1, p : 0, middle : 0, pro : 0, HP : 25000, ATK : 2500, DEF : 3000, skill : 1, CD : 100000, MAX_ATK : 2500,MAX_HP : 25000,MAX_DEF : 3000;R_HP : 1000;R_ATK : 500;R_DEF : 300, equipment : new Array(0,0,0,0,0,0), MAX_EQ = 0};
+			var Sasuke = { name : "佐助", id : 2, p : 0, middle : 0, pro : 0, HP : 20000, ATK : 4000, DEF : 2500, skill : 1, CD : 100000, MAX_ATK : 4000,MAX_HP : 20000,MAX_DEF : 2500;R_HP : 200;R_ATK : 2000;R_DEF : 300, equipment : new Array(0,0,0,0,0,0), MAX_EQ = 0};
+			var turns = 0;
+			var M = "木葉村 木葉森林 木業訓練場 木葉森林深處 命運 草波海岸 島龜 命運 雲隱村 雲雷峽 波之國 命運 鐵之國雪原 鐵之國城門 命運 五影會談現場 岩隱村 戰場忍刀七人眾 枯木之森 短冊街 命運 寺橋 風之國沙漠 命運 沙隱村 一線天 風之國沙漠 熱沙荒野 命運 川之國峽谷 火之國森林 木葉森林 木葉懸崖 死亡森林 死亡森林深處 霧隱村 命運 大蛇丸基地外圍 天地橋";
+			var map = M.split(' ');
+			var item = "下忍護鏡 下忍上衣 下忍指環 下忍飛鏢 下忍卷軸 中忍護額 中忍鎖甲 中忍指環 中忍苦無 中忍手冊 上忍面具 上忍背心 上忍項鍊 上忍之刃 上忍卷軸 影之斗笠 影之長袍 影之羈絆 影之忍刀 影之卷軸"
+			var item_name = item.split(' ');
+			var T = "一尾 二尾 三尾 四尾 五尾 六尾 七尾 八尾 九尾 十尾"
+			var tail = T.split(' ');
+			var village = new Array(5);
+			var destiny = new Array(8);
+			var a = new Array(39);
+			var player1_ID, player2_ID;
+			var person=0;
+			
+			function start(){
+				button = document.getElementById( "rollButton" );
+				play = document.getElementById( "play" );
+				play.addEventListener( "click", restart, false );
+				detail();
+				document.getElementById( "h_skill" ).disabled = true;
+				for(var i = 0; i < 39; i++){a[i] = document.getElementById( "a"+ i );}
+				for(var i = 0; i < 5;i++){village[i]=0;}
+				for(var i = 0; i < 6;i++){P1.equipment[i]=0;P2.equipment[i]=0;}
+				for(var i = 0; i < 8; i++){destiny[i]=0;}
+				if(turns == 0)document.getElementById('s_skill').disabled = true;
+				confirm = document.getElementById('confirm');
+				confirm.disabled = true;
+				roll();
+				die1Image = document.getElementById( "die1" );
+				die2Image = document.getElementById( "die2" );
+			}
+			
+			function detail(){
+				document.getElementById('n_HP').innerHTML = "血量: " + P1.HP.toFixed(0);document.getElementById('n_DEF').innerHTML = "防禦: " + P1.DEF.toFixed(0);document.getElementById('n_ATK').innerHTML = "攻擊: " + P1._ATK.toFixed(0);
+				document.getElementById('s_HP').innerHTML = "血量: " + P2.HP.toFixed(0);document.getElementById('s_DEF').innerHTML = "防禦: " + P2.DEF.toFixed(0);document.getElementById('s_ATK').innerHTML = "攻擊: " + P2.ATK.toFixed(0);
+				document.getElementById('h_HP').innerHTML = "血量: " + Boss.HP.toFixed(0);document.getElementById('h_DEF').innerHTML = "防禦: " + Boss.DEF.toFixed(0);document.getElementById('h_ATK').innerHTML = "攻擊: " + Boss.ATK.toFixed(0);
+			}
+			
+			function break5(i){
+				if(i==1){document.getElementById('t0').setAttribute("background","木葉村毀.png");}
+				if(i==2){document.getElementById('t8').setAttribute("background","雲隱村毀.png");}
+				if(i==3){document.getElementById('t35').setAttribute("background","霧隱村毀.png");}
+				if(i==4){document.getElementById('t24').setAttribute("background","沙隱村毀.jpg");}
+				if(i==5){document.getElementById('t16').setAttribute("background","岩隱村毀.png");}
+			}
+			
+			function recover(i){
+				if(i==1){document.getElementById('t0').setAttribute("background","木葉村.jpg");}
+				if(i==2){document.getElementById('t8').setAttribute("background","雲隱村.jpg");}
+				if(i==3){document.getElementById('t35').setAttribute("background","霧隱村.jpg");}
+				if(i==4){document.getElementById('t24').setAttribute("background","沙隱村.jpg");}
+				if(i==5){document.getElementById('t16').setAttribute("background","岩隱村.jpg");}
+			}
+			
+			function fobidden(i){
+				document.getElementById('t'+i).setAttribute("background","命運封.png");
+			}
+			
+			function release(i){
+				document.getElementById('t'+i).setAttribute("background","命運.jpg");
+			}
+			
+			function roll(){
+				button.addEventListener( "click", rollDice, false );
+				confirm.addEventListener( "click", rollDice, false );
+			}
+			
+			function damage(A, D){
+				if (D > A)return 1;
+				else return (A - D)
+			}
+			
+			function initialMap(){
+				if(P2.p == P1.p && P2.p == Boss.p)a[P1.p].innerHTML = "";
+				else if(P2.p == Boss.p){a[P1.p].innerHTML = "";a[Boss.p].innerHTML = "";}
+				else if(Boss.p == P1.p){a[P1.p].innerHTML = "";a[P2.p].innerHTML = "";}
+				else {
+					a[P1.p].innerHTML = "";
+					a[P2.p].innerHTML = "";
+					a[Boss.p].innerHTML = "";
+				}
+				document.getElementById('t'+P1.p).style.borderColor="red";
+				document.getElementById('t'+Boss.p).style.borderColor="red";
+				document.getElementById('t'+P2.p).style.borderColor="red";
+			}
+			
+			function P1_EQ(){
+				if((P1.p == 0&&village[0]==0)||(P1.p == 8&&village[1]==0)||(P1.p == 35&&village[2]==0)||(P1.p == 24&&village[3]==0)||(P1.p == 16&&village[4]==0)){
+					if(max_N<20){
+					var I = Math.floor( 1+Math.random() * 5 );
+					while(N_equipment[I]>=4){I = Math.floor( 1+Math.random() * 5 );}
+					P1.MAX_EQ++;
+					P1_equipment[I]++;
+					document.getElementById('msg').innerHTML+="<span class = 'nc'>"+P1.name+"</span>獲得了<span class = 'e"+N_equipment[I]+"'>"+item_name[(N_equipment[I]-1)*5+I-1]+"</span>!<br>";
+					N_show();
+					if(max_N==20){
+						document.getElementById('END').setAttribute("class","end1");
+						document.getElementById('END').innerHTML="<img src = '"+P1.name+"滿裝.jpg' style='border:10px black solid;width: 640px; height: 360px;'><br>&nbsp&nbsp&nbsp<span class = 'end'>"+P1.name+"滿裝</span>"
+						setTimeout("document.getElementById('END').innerHTML=''",3000);
+						}
+					}
+					else {
+						document.getElementById('msg').innerHTML+="裝備滿了!<br>";
+					}
+				}
+				if(P1.id = 1){N_improve();}
+			}
+			
+			function P1_show(){
+				var k = document.getElementById('n_equipment');
+				k.innerHTML = '<font>裝備:&nbsp</font>';
+				for(var i = 1; i < 6;i++){
+					if(P1.equipment[i]==1)k.innerHTML+="<img src = '"+i+"1.jpg' class = 's3'>"
+					if(P1.equipment[i]==2)k.innerHTML+="<img src = '"+i+"2.jpg' class = 's3'>"
+					if(P1.equipment[i]==3)k.innerHTML+="<img src = '"+i+"3.jpg' class = 's3'>"
+					if(P1.equipment[i]==4)k.innerHTML+="<img src = '"+i+"4.jpg' class = 's3'>"
+					if(P1.equipment[i]==5)k.innerHTML+="<img src = '"+i+"4.jpg' class = 's3'>"
+				}
+			}
+			
+			function N_improve(I){
+				if(I=1){
+					if(P1.equipment[I]==1){P1.HP+=5000;P1.MAX_HP+=5000;P1.R_HP+=300;}
+					if(P1.equipment[I]==2){P1.HP+=15000;P1.MAX_HP+=15000;P1.R_HP+=1500;}
+					if(P1.equipment[I]==3){P1.HP+=50000;P1.MAX_HP+=50000;P1.R_HP+=3000;}
+					if(P1.equipment[I]==4){P1.HP+=100000;P1.MAX_HP+=100000;P1.R_HP+=5000;}
+				}
+				if(I=2){
+					if(P1.equipment[I]==1){N_DEF+=1000;m_NDEF+=1000;r_NDEF+=200;}
+					if(P1.equipment[I]==2){N_DEF+=3500;m_NDEF+=3500;r_NDEF+=500;}
+					if(P1.equipment[I]==3){N_DEF+=10000;m_NDEF+=10000;r_NDEF+=1000;}
+					if(P1.equipment[I]==4){N_DEF+=200000;m_NDEF+=200000;r_NDEF+=10000;}
+				}
+				if(I=3){
+					if(P1.equipment[I]==1){P1.MAX_HP*=1.2;P1.HP=P1.MAX_HP;m_NDEF*=1.2;N_DEF=m_NDEF;m_NATK*=1.2;N_ATK=m_NATK;}
+					if(P1.equipment[I]==2){P1.MAX_HP*=1.5;P1.HP=P1.MAX_HP;m_NDEF*=1.5;N_DEF=m_NDEF;m_NATK*=1.5;N_ATK=m_NATK;}
+					if(P1.equipment[I]==3){P1.MAX_HP*=2;P1.HP=P1.MAX_HP;m_NDEF*=2;N_DEF=m_NDEF;m_NATK*=2;N_ATK=m_NATK;}
+					if(P1.equipment){P1.MAX_HP*=3;P1.HP=P1.MAX_HP;m_NDEF*=3;N_DEF=m_NDEF;m_NATK*=3;N_ATK=m_NATK;}
+				}
+				if(I=4){
+					if(P1.equipment[I]==1){N_ATK+=1000;m_NATK+=1000;r_NATK+=500;}
+					if(P1.equipment[I]==2){N_ATK+=5000;m_NATK+=5000;r_NATK+=1500;}
+					if(P1.equipment[I]==3){N_ATK+=10000;m_NATK+=10000;r_NATK+=3000;}
+					if(P1.equipment[I]==4){N_ATK+=200000;m_NATK+=200000;r_NATK+=10000;}
+				}
+				if(I=5){
+					if(P1.equipment[I]==1){N_ATK+=1000;m_NATK+=1000;}
+					if(P1.equipment[I]==2){N_ATK+=5000;m_NATK+=5000;}
+					if(P1.equipment[I]==3){N_ATK*=1.5;m_NATK*=1.5;}
+					if(P1.equipment[I]==4){N_ATK*=5;m_NATK*=5;}
+				}
+				detail();
+			}
+			
+			window.addEventListener( "load", start, false );
+		</script>
+	</head>
+	<body>
+		<table border = "1" class = 'a'>
+			<caption><font class = 'a'>第四次忍界大戰<br></font></caption>
+			<tbody><tr style = 'height :11%'>
+				<td background="木葉村.jpg" style = "background-size: 100% 100%;"id = 't0'><div id = 'a0'><img src = '鳴人.png' id = 'nr' class = 's'><img src = '佐助.png' id = 'sk' class = 's'><img src = '輝夜.png' id = 'kg' class = 's'></div></td>
+				<td background="木葉森林.jpg" style = "background-size: 100% 100%;"id = 't1'><div id = 'a1'></div></td>
+				<td background="木葉訓練場.jpg" style = "background-size: 100% 100%;"id = 't2'><div id = 'a2'></div></td>
+				<td background="木葉森林深處.jpg" style = "background-size: 100% 100%;"id = 't3'><div id = 'a3'></div></td>
+				<td background="命運.jpg" style = "background-size: 100% 100%;"id = 't4'><div id = 'a4'></div></td>
+				<td background="草波海岸.jpg" style = "background-size: 100% 100%;"id = 't5'><div id = 'a5'></div></td>
+				<td background="島龜.jpg" style = "background-size: 100% 100%;"id = 't6'><div id = 'a6'></div></td>
+				<td background="命運.jpg" style = "background-size: 100% 100%;"id = 't7'><div id = 'a7'></div></td>
+				<td background="雲隱村.jpg" style = "background-size: 100% 100%;"id = 't8'><div id = 'a8'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="木葉森林.jpg" style = "background-size: 100% 100%;"id = 't31'><div id = 'a31'></div></td>
+				<td rowspan = '7' colspan = '3' style = 'background-color: gray';>
+					<table class = 'b' style = 'background-color: black';>
+						<tbody><tr style = 'height :10%'><th colspan = '10' style = 'background-color: #4FF0DF;'>角色資訊</th></tr>
+						<tr style = 'height :10%; background-color: yellow';><th colspan = '10'><font>鳴人</font><img src = '鳴人.png' class = 's2'></th></tr>
+						<tr style = 'height :10%; background-color: yellow';>
+						<th style = 'width :33%' id = 'n_HP'>血量: 123</th><th style = 'width :34%' id = 'n_DEF'>防禦: 25</th><th style = 'width :33%' id = 'n_ATK'>攻擊: 200</th>
+						<tr style = 'height :10%; background-color: yellow;' >
+						<th colspan = '10' id = 'n_equipment' style = 'text-align: left;'>&nbsp;&nbsp;&nbsp;裝備 : </th>
+						</tr>
+						<tr><th style = 'height :10%; background-color: #9566F2;'  colspan = '10'><font>佐助</font> <img src = '佐助.png' class = 's2'></th></tr>
+						<tr style = 'height :10%; background-color: #9566F2;'>
+						<th style = 'width :33%' id = 's_HP'>血量: 123</th><th style = 'width :34%' id = 's_DEF'>防禦: 25</th><th style = 'width :33%' id = 's_ATK'>攻擊: 200</th>
+						<tr style = 'height :10% ; background-color: #9566F2;'>
+						<th colspan = '10' id = 's_equipment' style = 'text-align: left;'>&nbsp;&nbsp;&nbsp;裝備 : </th>
+						</tr>
+						<tr><th style = 'height :10%; background-color: #ED4B31;'  colspan = '10'><font>大筒木輝夜</font><img src = '輝夜.png' class = 's2'></th></tr>
+						<tr style = 'height :10%; background-color: #ED4B31;'>
+						<th style = 'width :33%' id = 'h_HP'>血量: 123</th><th style = 'width :34%' id = 'h_DEF'>防禦: 25</th><th style = 'width :33%' id = 'h_ATK'>攻擊: 200</th>
+						<tr style = 'height :10%; background-color: #ED4B31;'>
+						<th colspan = '10' id = 'h_equipment' style = 'text-align: left;'>&nbsp;&nbsp;&nbsp;裝備 : </th>
+						</tr></tbody>
+				</table>
+				</td>
+				<td background="木葉懸崖.jpg" style = "background-size: 100% 100%;"id = 't32'><div id = 'a32'></div></td>
+				<td rowspan = '7' colspan = '3' style = "vertical-align:top; background-color:black;" >
+					<div class = 'b' style = "background-color:white;">
+						<br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<img id = "die1" src = "die6.png" alt = "blank image"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<img id = "die2" src = "die6.png" alt = "blank image">
+					</div>
+					<input id = "play" type = "button" onclick="restart()" value = "restart" style = 'float: left; margin-top: 10px; margin-left: 5px;height:40px; width: 70px;'>
+					<input id = "rollButton" type = "button" value = "Roll Dice" style = 'float: left; margin-top: 10px; margin-left: 5px; height:30px; width: 70px;'>
+					<input id = "confirm" type = "button" value = "confirm" style = 'float: left; margin-top: 10px; margin-left: 5px; height:30px; width: 70px;'>
+					<div id = 'n' class = 'd' onmouseover = 'b_nr()' onmouseout = "s_nr()" style = 'background-color: yellow;border-color: yellow;'>鳴人</div>
+					<div id = 's' class = 'c' onmouseover = 'b_sk()' onmouseout = "s_sk()" style = 'background-color: #9566F2;border-color: #9566F2;'>佐助</div>
+					<div id = 'h' class = 'c' onmouseover = 'b_kg()' onmouseout = "s_kg()" style = 'background-color: #ED4B31;border-color: #ED4B31;'>大筒木輝夜</div>
+					<input id = "h_skill" onclick="h_skill()" type = "button" value = "skill" style = 'float: right; margin-bottom: 10px; margin-right: 12px;width: 29%;height:18px;border:2px black double;background-color:#ED4B31;'>
+					<input id = "s_skill" onclick="s_skill()" type = "button" value = "skill" style = 'float: right; margin-bottom: 10px; margin-right: 10px;width: 29%;height:18px;border:2px black double;background-color:#9566F2;'>
+					<input id = "n_skill" onclick="n_skill()"  type = "button"value = "skill" style = 'float: right; margin-bottom: 10px; margin-right: 10px;width: 29%;height:18px;border:2px black double;background-color:yellow;'>
+					<div class = 'a' style = "background-color:#c0c0c0;" id = 'msg' >這裡是第四次忍界大戰(一到兩人遊玩)<br>玩家扮演<span class = 'nc'>鳴人</span>和<span class = 'sc'>佐助</span><br>並想辦法打贏<span class = 'hc'>輝夜</span><br><span class = 'hurt'>祝你們好運!</span><br></div>
+				</td>
+				<td background="雲雷峽.jpg" style = "background-size: 100% 100%;"id = 't9'><div id = 'a9'></div></td></tr>
+			<tr style = 'height :11%'>
+				<td background="火之國森林.jpg" style = "background-size: 100% 100%;"id = 't30'><div id = 'a30'></div></td>
+				<td background="死亡森林.jpg" style = "background-size: 100% 100%;"id = 't33'><div id = 'a33'></div></td>
+				<td background="波之國.jpg" style = "background-size: 100% 100%;"id = 't10'><div id = 'a10'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="川之國.jpg" style = "background-size: 100% 100%;"id = 't29'><div id = 'a29'></div></td>
+				<td background="死亡森林深處.jpg" style = "background-size: 100% 100%;"id = 't34'><div id = 'a34'></div></td>
+				<td background="命運.jpg" style = "background-size: 100% 100%;"id = 't11'><div id = 'a11'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="命運.jpg" style = "background-size: 100% 100%;"id = 't28'><div id = 'a28'></div></td>
+				<td background="霧隱村.jpg" style = "background-size: 100% 100%;"id = 't35'><div id = 'a35'></div></td>
+				<td background="鐵之國雪原.jpg" style = "background-size: 100% 100%;"id = 't12'><div id = 'a12'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="熱沙荒野.jpg" style = "background-size: 100% 100%;"id = 't27'><div id = 'a27'></div></td>
+				<td background="命運.jpg" style = "background-size: 100% 100%;"id = 't36'><div id = 'a36'></div></td>
+				<td background="鐵之國城門.jpg" style = "background-size: 100% 100%;"id = 't13'><div id = 'a13'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="風之國沙漠.jpg" style = "background-size: 100% 100%;"id = 't26'><div id = 'a26'></div></td>
+				<td background="大蛇丸基地外圍.jpg" style = "background-size: 100% 100%;"id = 't37'><div id = 'a37'></div></td>
+				<td background="命運.jpg" style = "background-size: 100% 100%;"id = 't14'><div id = 'a14'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="一線天.jpg" style = "background-size: 100% 100%;"id = 't25'><div id = 'a25'></div></td>
+				<td background="天地橋.jpg" style = "background-size: 100% 100%;"id = 't38'><div id = 'a38'></div></td>
+				<td background="五影會談現場.jpg" style = "background-size: 100% 100%;"id = 't15'><div id = 'a15'></div></td>
+			</tr>
+			<tr style = 'height :11%'>
+				<td background="沙隱村.jpg" style = "background-size: 100% 100%;"id = 't24'><div id = 'a24'></div></td>
+				<td background="命運.jpg" style = "background-size: 100% 100%;"id = 't23'><div id = 'a23'></div></td>
+				<td background="風之國沙漠.jpg" style = "background-size: 100% 100%;"id = 't22'><div id = 'a22'></div></td>
+				<td background="寺橋.jpg" style = "background-size: 100% 100%;"id = 't21'><div id = 'a21'></div></td>
+				<td background="命運.jpg" style = "background-size: 100% 100%;"id = 't20'><div id = 'a20'></div></td>
+				<td background="短冊街.jpg" style = "background-size: 100% 100%;"id = 't19'><div id = 'a19'></div></td>
+				<td background="枯木之森.jpg" style = "background-size: 100% 100%;"id = 't18'><div id = 'a18'></div></td>
+				<td background="戰場忍刀七人眾.jpg" style = "background-size: 100% 100%;"id = 't17'><div id = 'a17'></div></td>
+				<td background="岩隱村.jpg" style = "background-size: 100% 100%;"id = 't16'><div id = 'a16'></div></td>
+			</tr>
+			</tr></tbody>
+		<div id = 'END'></div>
+		</body>
+</html>
